@@ -1,4 +1,11 @@
+import os
+import sys
+
 from src.item import Item
+
+sys.path.insert(0, os.path.abspath('path/to/src'))
+
+print(sys.path)
 
 if __name__ == '__main__':
     item1 = Item("Смартфон", 10000, 20)

@@ -52,15 +52,14 @@ class Item:
     def instantiate_from_cvs(cls):
         '''класс-метод, инициализирующий экземпляры класса
         "Item" данными из файла .../src/items.csv'''
-        with cls.DATA_DIR.open(newline='') as csvfile:
-            reader = csv.DictReader(csvfile)
-            cls.all.clear()
-            for row in reader:
-                name = row['name']
-                price = row['price']
-                quantity = row['quantity']
-                cls(name, price, quantity)
-            return cls
+        import csv
+        import os
+        cls.all.clear()
+        path = os.path.join(os.path.dirname(__file__), 'items.csv')
+        with open(path, 'r', encoding='UTF-8') as f:
+            reader = csv.DictReader(f)
+            for read in reader:
+                cls(read['name'], read['price'], read['quantity'])
 
     @staticmethod
     def string_to_number(param):

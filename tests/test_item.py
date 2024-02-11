@@ -16,6 +16,26 @@ def test_apply_discount():
     data.apply_discount()
     assert data.price == 8000.0
 
+def test_name(self):
+    """Тест сеттера сокращающего длину имени до 10(и) символов."""
+    data.name = "Abrakadabra"
+    assert len(data.name) == 10
+
+def test_instantiate_from_csv(self):
+    """
+    Проверка метода инициализируеющнго экземпляры класса Item данными из файла src/items.csv
+    """
+    Item.instantiate_from_csv('src/items.csv')
+    assert len(Item.all) == 5
+
+def test_string_to_number(self):
+    """
+    Проверка метода преоброзвания строки в число
+    """
+    assert data.string_to_number("200") == 200
+
+
+
 
 
 """Здесь надо написать тесты с использованием pytest для модуля item."""

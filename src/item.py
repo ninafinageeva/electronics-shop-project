@@ -1,3 +1,7 @@
+import csv
+import os
+
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -34,7 +38,7 @@ class Item:
         self.price *= self.pay_rate
 
     @property
-    def name(self):
+    def name(self) -> None:
         '''
         name геттер
         '''
@@ -49,20 +53,20 @@ class Item:
         self.__name = value[:10]
 
     @classmethod
-    def instantiate_from_cvs(cls):
+    def instantiate_from_cvs(cls, file) -> None:
         '''класс-метод, инициализирующий экземпляры класса
         "Item" данными из файла .../src/items.csv'''
         import csv
         import os
         cls.all.clear()
-        path = os.path.join(os.path.dirname(__file__), 'items.csv')
+        path = os.path.join(os.path.dirname(__file__), file)
         with open(path, 'r', encoding='UTF-8') as f:
             reader = csv.DictReader(f)
             for read in reader:
                 cls(read['name'], read['price'], read['quantity'])
 
     @staticmethod
-    def string_to_number(param):
+    def string_to_number(param) -> int:
         '''Метод, возвращающий число из числа-строки'''
         return int(float(param))
 

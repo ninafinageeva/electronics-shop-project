@@ -66,9 +66,17 @@ class Item:
                 cls(read['name'], read['price'], read['quantity'])
 
     @staticmethod
-    def string_to_number(param) -> int:
+    def string_to_number(num_string) -> int:
         '''Метод, возвращающий число из числа-строки'''
-        return int(float(param))
+        return int(float(num_string))
+
+    def __repr__(self) -> str:
+        """__repr__"""
+        return f"Item('{self.__name}', {self.price}, {self.quantity})"
+
+    def __str__(self) -> str:
+        """__str__"""
+        return self.__name
 
 
 

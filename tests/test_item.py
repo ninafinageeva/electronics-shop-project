@@ -39,6 +39,17 @@ def test_string_to_number(data):
     """
     assert data.string_to_number("200") == 200
 
+def test__repr__():
+    """Тест правильного вывода информации для разработчика"""
+    item1 = Item("Ноутбук", 50000, 2)
+    assert repr(item1) == "Item('Ноутбук', 50000, 2)"
+    assert str(item1) == 'Ноутбук'
+
+def test__str__():
+    """Тест правильного вывода информации для пользователя"""
+    item1 = Item("Ноутбук", 50000, 2)
+    assert str(item1) == 'Ноутбук'
+
 
 
 

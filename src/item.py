@@ -53,7 +53,7 @@ class Item:
         self.__name = value[:10]
 
     @classmethod
-    def instantiate_from_cvs(cls, file) -> None:
+    def instantiate_from_csv(cls, file) -> None:
         '''класс-метод, инициализирующий экземпляры класса
         "Item" данными из файла .../src/items.csv'''
         import csv

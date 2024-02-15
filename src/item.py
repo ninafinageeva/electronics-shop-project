@@ -78,6 +78,9 @@ class Item:
         """__str__"""
         return self.__name
 
+    def __add__(self, other) -> int:
+        return self.quantity + other.quantity
+
 
 
 

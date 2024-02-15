@@ -50,6 +50,10 @@ def test__str__():
     item1 = Item("Ноутбук", 50000, 2)
     assert str(item1) == 'Ноутбук'
 
+def test__add__():
+    """z"""
+    item1 = Item("Ноутбук", 50000, 2)
+
 
 
 

@@ -18,7 +18,9 @@ class Phone(Item):
         self._number_of_sim = value
 
     def __repr__(self) -> str:
-        return f'Phone{self.name, self.price, self.quantity, self.number_of_sim}'
+        return f'{self.__class__.__name__}{self.name, self.price, self.quantity, self.number_of_sim}'
+        # return f'Phone{self.name, self.price, self.quantity, self.number_of_sim}'
+
 
 
 

@@ -54,6 +54,12 @@ def test__add__():
     """z"""
     item1 = Item("Ноутбук", 50000, 2)
 
+def test_instantiate_from_csv():
+    Item.instantiate_from_csv()
+    assert len(Item.all) == 5
+    test1 = Item.all[0]
+    assert test1.name == "Смартфон"
+
 
 
 

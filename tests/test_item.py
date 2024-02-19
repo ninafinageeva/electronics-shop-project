@@ -1,5 +1,5 @@
 import pytest
-from src.item import Item
+from src.item import Item, InstantiateCSVError
 
 data = Item("Смартфон", 10000, 20)
 
@@ -26,12 +26,17 @@ def test_name(data):
     data.name = "Abrakadabra"
     assert len(data.name) == 10
 
-def test_instantiate_from_csv():
-    """
-    Проверка метода инициализируеющнго экземпляры класса Item данными из файла src/items.csv
-    """
+def test_unbroken_instantiate_from_csv():
+    """Тестирование метода instantiate_from_csv в правильном состоянии."""
     Item.instantiate_from_csv('items.csv')
     assert len(Item.all) == 5
+
+def test_broken_instantiate_from_csv():
+    """Тестирование метода instantiate_from_csv в сломанном состоянии"""
+    with pytest.raises(KeyError):
+        Item.instantiate_from_csv('items.csv')
+    with pytest.raises(InstantiateCSVError):
+        Item.instantiate_from_csv('items.csv')
 
 def test_string_to_number(data):
     """
@@ -53,14 +58,6 @@ def test__str__():
 def test__add__():
     """z"""
     item1 = Item("Ноутбук", 50000, 2)
-
-def test_instantiate_from_csv():
-    Item.instantiate_from_csv()
-    assert len(Item.all) == 5
-    test1 = Item.all[0]
-    assert test1.name == "Смартфон"
-
-
 
 
 

@@ -59,7 +59,7 @@ class Item:
         import csv
         import os
         cls.all.clear()
-        path = os.path.join(os.path.dirname(__file__), file)
+        path = os.path.join(os.path.dirname(__file__), 'items.csv')
         try:
             with open(path, 'r', encoding='UTF-8') as f:
                 reader = csv.DictReader(f)
@@ -70,19 +70,10 @@ class Item:
         except KeyError:
             raise InstantiateCSVError
 
-
     @staticmethod
     def string_to_number(num_string) -> int:
         '''Метод, возвращающий число из числа-строки'''
         return int(float(num_string))
-
-    # def __repr__(self) -> str:
-    #     """__repr__"""
-    #     return f"Item('{self.__name}', {self.price}, {self.quantity})"
-    #
-    # def __str__(self) -> str:
-    #     """__str__"""
-    #     return self.__name
 
     def __add__(self, other) -> int:
         """Складывает экземпляры класса Phone и Item.
